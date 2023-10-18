@@ -83,8 +83,7 @@ export class AuthRepository extends Repository {
       }
 
       let authRaw: string;
-
-      if (readdirSync(join(AUTH_DIR, 'jwt')).find((i) => i === instance)) {
+      if (readdirSync(join(AUTH_DIR, 'jwt')).find((i) => i === instance + '.json')) {
         authRaw = readFileSync(join(AUTH_DIR, 'jwt', instance + '.json'), {
           encoding: 'utf-8',
         });

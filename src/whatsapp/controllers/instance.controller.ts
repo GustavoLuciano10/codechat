@@ -179,5 +179,13 @@ export class InstanceController {
     req.session[instance.instanceName] = Buffer.from(JSON.stringify(token)).toString(
       'base64',
     );
+
+    return {
+      instance: {
+        instanceName: instance.instanceName,
+        status: 'updated',
+      },
+      token,
+    };
   }
 }
